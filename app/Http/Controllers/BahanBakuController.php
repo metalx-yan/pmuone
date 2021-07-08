@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Purchase;
+use App\BahanBaku;
 
-class PurchaseController extends Controller
+class BahanBakuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        $all = Purchase::all();
-
-        return view('purchase.index', compact('all'));
+        $data = BahanBaku::all();
+        return view('bahanbakus.index', compact('data'));
     }
 
     /**
@@ -26,7 +25,8 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        return view('purchase.create');
+        return view('bahanbakus.create');
+
     }
 
     /**
@@ -38,13 +38,13 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
         $vali = $request->validate([
-            'name' => 'required|string',
-            'address' => 'required|string'
+            'name' => 'required',
+            'masterbatch' => 'required',
         ]);
 
-        Purchase::create($vali);
+        BahanBaku::create($vali);
 
-        return redirect()->route('purchase.index');
+        return redirect()->route('bahanbaku.index');
     }
 
     /**
@@ -66,9 +66,8 @@ class PurchaseController extends Controller
      */
     public function edit($id)
     {
-        $get = Purchase::find($id);
-
-        return view('purchase.edit', compact('get'));
+        $get = BahanBaku::find($id);
+        return view('bahanbakus.edit', compact('get'));
     }
 
     /**
@@ -80,17 +79,17 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $vali = $request->validate([
-            'name' => "required|string",
-            'address' => "required|string"
+        $request->validate([
+            'name'              =>  "required",
+            'masterbatch'           =>  'required',
         ]);
 
-        $user           = Purchase::findOrFail($id);
-        $user->name     = $request->name;
-        $user->address     = $request->address;
-        $user->save();
+        $update = BahanBaku::findOrFail($id);
+        $update->name = $request->name;
+        $update->masterbatch = $request->masterbatch;
+        $update->save();
 
-        return redirect()->route('purchase.index');
+        return redirect()->route('bahanbaku.index');
     }
 
     /**
@@ -101,8 +100,8 @@ class PurchaseController extends Controller
      */
     public function destroy($id)
     {
-        $find = Purchase::find($id);
-        $find->delete();
+        $get = BahanBaku::find($id);
+        $get->delete();
 
         return redirect()->back();
     }

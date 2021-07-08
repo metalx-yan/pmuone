@@ -27,7 +27,7 @@ class ItemController extends Controller
         } else {
             $masuk = Requestt::where('status', 1)->whereBetween('updated_at',array($request->from,$request->to))->get();
         }
-        
+
         return view('barang.masuk', compact('masuk'));
     }
 
@@ -138,7 +138,7 @@ class ItemController extends Controller
         return redirect()->route('barang.index');
     }
 
-    
+
 
     /**
      * Remove the specified resource from storage.

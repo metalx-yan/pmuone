@@ -19,18 +19,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:administrator'
         return view('admin.index');
     });
 
-    Route::get('/barang/masuk', 'ItemController@masuk')->name('masuk');
-
-    Route::get('/barang/keluar', 'ItemController@keluar')->name('keluar');
-
-    Route::put('/barang/keluar/{id?}', 'ItemController@keluarpost')->name('keluarpost');
-
-    Route::resource('barang', 'ItemController');
-
-    Route::resource('kategori', 'CategoryController');
-
-    Route::resource('purchase', 'PurchaseController');
-        
+    Route::resource('order', 'OrderController');
+    Route::resource('supplier', 'SupplierController');
+    Route::resource('bahanbaku', 'BahanBakuController');
+    Route::resource('pembelian', 'PembelianController');
+    Route::resource('transaksi', 'TransaksiController');
 });
 
 Route::group(['prefix' => 'purchasing', 'middleware' => ['auth', 'role:purchasing']], function() {
@@ -39,10 +32,6 @@ Route::group(['prefix' => 'purchasing', 'middleware' => ['auth', 'role:purchasin
         return view('purchasing.indux');
     });
 
-    Route::resource('request', 'RequestController');
-    Route::get('/invoice-pdf/{dateone?}/{datetwo?}', 'RequestController@pdf')->name('pdf');
-    // Route::get('/cari', 'RequestController@pdf')->name('pdf');
-
 });
 
 Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'role:manager']], function() {
@@ -50,17 +39,12 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'role:manager']], 
     Route::get('/', function () {
         return view('manager.index');
     });
-
-    Route::get('/permintaan', 'RequestController@acc')->name('manager.acc');
-    Route::put('permintaan/{id}', 'RequestController@accpost')->name('manager.barang.post');
-    Route::put('permintaan/decline/{id}', 'RequestController@accpostdecline')->name('manager.barang.post.decline');    
-    
 });
 
 
 Route::get('/', function () {
 
-    return view('welcome', compact('schema', 'records'));
+    return view('welcome');
 });
 
 Auth::routes();
