@@ -24,11 +24,14 @@
                         <li>
                             <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Master Data</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{ route('order.index') }}">Data Order</a></li>
-                                <li><a href="{{ route('supplier.index') }}">Data Supplier</a></li>
-                                <li><a href="{{ route('bahanbaku.index') }}">Data Bahan Baku</a></li>
-                                <li><a href="{{ route('pembelian.index') }}">Data Pembelian</a></li>
-                                <li><a href="{{ route('transaksi.index') }}">Data Transaksi Pembelian</a></li>
+
+                                <li><a href="{{ route('bahanbaku.index') }}">Nama Bahan</a></li>
+                                <li><a href="{{ route('supplier.index') }}">Nama Supplier</a></li>
+                                <li><a href="{{ route('bpb.index') }}">BPB (Bon Permintaan Bahan)</a></li>
+                                <li><a href="{{ route('order.index') }}">Purchase Order</a></li>
+                                <li><a href="{{ route('transaksi.index') }}">Transaksi Pembelian & Penerimaan Invoice</a></li>
+                                <li><a href="{{ route('penerimaanbahan.index') }}">Penerimaan Bahan</a></li>
+                                <li><a href="{{ route('pembelian.index') }}">Laporan Pembelian</a></li>
                             </ul>
                         </li>
                         {{-- <li><a href="{{ route('masuk') }}"><i class="mdi mdi-checkbox-marked-circle-outline"></i>Barang Masuk</a></li>

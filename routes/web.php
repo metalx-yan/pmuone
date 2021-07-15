@@ -24,6 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:administrator'
     Route::resource('bahanbaku', 'BahanBakuController');
     Route::resource('pembelian', 'PembelianController');
     Route::resource('transaksi', 'TransaksiController');
+    Route::resource('bpb', 'BpbController');
+    Route::resource('penerimaanbahan', 'PenerimaanBahanController');
 });
 
 Route::group(['prefix' => 'purchasing', 'middleware' => ['auth', 'role:purchasing']], function() {
