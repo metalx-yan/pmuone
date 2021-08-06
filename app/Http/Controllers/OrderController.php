@@ -12,6 +12,12 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function laporan()
+    {
+        $data = Order::all();
+
+        return view('orders.pimpinanlaporan',compact('data'));
+    }
     public function index()
     {
         $data = Order::all();

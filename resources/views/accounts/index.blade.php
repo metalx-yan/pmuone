@@ -1,5 +1,5 @@
 @extends('main')
-@section('title', 'Penerimaan Bahan')
+@section('title', 'Tambah Akun')
 @section('content')
 <div class="container-fluid">
 
@@ -8,7 +8,7 @@
             <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active">Penerimaan Bahan</li>
+                <li class="breadcrumb-item active">Tambah Akun</li>
             </ol>
         </div>
     </div>
@@ -21,18 +21,16 @@
             $no = 1;
         @endphp
         <div class="card-body">
-            <a href="{{ route('penerimaanbarang.create') }}" class="btn btn-primary btn-sm">Tambah Penerimaan Bahan</a>
+            <a href="{{ route('account.create') }}" class="btn btn-primary btn-sm">Tambah Akun</a>
             <br>
             <br>
-            <table class="table border" id="myTable" >
+            <table class="table border" id="myTable">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Barang</th>
-                        <th>Kode Barang</th>
-                        <th>Qty (KG)</th>
-                        <th>Nama Penerima</th>
-                        <th>Keterangan OK/TDK</th>
+                        <th>Nama</th>
+                        <th>Username</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -40,19 +38,17 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->nama_barang }}</td>
-                            <td>{{ $item->kode_barang }}</td>
-                            <td>{{ $item->qty }}</td>
-                            <td>{{ $item->nama_penerima }}</td>
-                            <td>{{ $item->keterangan }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->username }}</td>
+                            <td>{{ $item->role->name }}</td>
                             <td>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <a href="{{ route('penerimaanbarang.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('account.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-2">
-                                        <form action="{{ route('penerimaanbarang.destroy', $item->id) }}" method="post">
+                                        <form action="{{ route('account.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')" >Delete</button>
@@ -70,20 +66,11 @@
 @endsection
 
 @section('scripts')
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    {{-- <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script> --}}
-    {{-- <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script> --}}
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <script>
         $(document).ready( function () {
-            $('#myTable').DataTable({
-                // dom: 'Bfrtip',
-                // buttons: [
-                //     'print'
-                // ],
-                // "scrollX": true
-            });
+            $('#myTable').DataTable();
         } );
     </script>
 

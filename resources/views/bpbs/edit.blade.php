@@ -27,17 +27,17 @@
                         <input type="text" name="departemen" value="{{ $get->departemen }}" class="form-control {{ $errors->has('departemen') ? 'is-invalid' : ''}}" required>
                         {!! $errors->first('departemen', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label for="">Nama Barang</label>
                         <input type="text" name="nama_barang" value="{{ $get->nama_barang }}" class="form-control {{ $errors->has('nama_barang') ? 'is-invalid' : ''}}" required>
                         {!! $errors->first('nama_barang', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label for="">Sisa</label>
                         <input type="text" name="sisa" value="{{ $get->sisa }}" class="form-control {{ $errors->has('sisa') ? 'is-invalid' : ''}}" required>
                         {!! $errors->first('sisa', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label for="">Satuan</label>
                         <input type="text" name="satuan_sisa" value="{{ $get->satuan_sisa }}" class="form-control {{ $errors->has('satuan_sisa') ? 'is-invalid' : ''}}" required>
                         {!! $errors->first('satuan_sisa', '<span class="invalid-feedback">:message</span>') !!}

@@ -18,7 +18,7 @@
 
         </div>
         <div class="card-body">
-            <form action="{{ route('penerimaanbahan.update', $get->id) }}" method="post">
+            <form action="{{ route('penerimaanbarang.update', $get->id) }}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -52,7 +52,7 @@
                 </div>
                     <br>
                     <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                    <a href="{{ route('penerimaanbahan.index') }}" class="btn btn-warning btn-sm">Back</a>
+                    <a href="{{ route('penerimaanbarang.index') }}" class="btn btn-warning btn-sm">Back</a>
             </form>
         </div>
     </div>

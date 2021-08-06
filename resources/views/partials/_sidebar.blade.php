@@ -24,14 +24,7 @@
                         <li>
                             <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Master Data</span></a>
                             <ul aria-expanded="false" class="collapse">
-
-                                <li><a href="{{ route('bahanbaku.index') }}">Nama Bahan</a></li>
-                                <li><a href="{{ route('supplier.index') }}">Nama Supplier</a></li>
-                                <li><a href="{{ route('bpb.index') }}">BPB (Bon Permintaan Bahan)</a></li>
-                                <li><a href="{{ route('order.index') }}">Purchase Order</a></li>
-                                <li><a href="{{ route('transaksi.index') }}">Transaksi Pembelian & Penerimaan Invoice</a></li>
-                                <li><a href="{{ route('penerimaanbahan.index') }}">Penerimaan Bahan</a></li>
-                                <li><a href="{{ route('pembelian.index') }}">Laporan Pembelian</a></li>
+                                <li><a href="{{ route('account.index') }}">Account</a></li>
                             </ul>
                         </li>
                         {{-- <li><a href="{{ route('masuk') }}"><i class="mdi mdi-checkbox-marked-circle-outline"></i>Barang Masuk</a></li>
@@ -40,7 +33,7 @@
                     @endif
 
 
-                    @if (Auth::user()->role->name == 'purchasing')
+                    @if (Auth::user()->role->name == 'gudang')
                     <li class="nav-small-cap">PERSONAL</li>
                     {{-- <li>
                         <a class="" href="{{ route('request.index') }}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard Permintaan Barang</span></a>
@@ -49,13 +42,16 @@
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Dashboard</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{ route('request.index') }}">Permintaan Barang</a></li>
+                            {{-- <li><a href="{{ route('request.index') }}">Permintaan Barang</a></li> --}}
+                            <li><a href="{{ route('bahanbaku.index') }}">Nama Bahan</a></li>
+                            <li><a href="{{ route('bpb.index') }}">BPB (Bon Permintaan Bahan)</a></li>
+                            <li><a href="{{ route('penerimaanbarang.index') }}">Penerimaan Bahan</a></li>
                         </ul>
                     </li>
 
                     @endif
 
-                    @if (Auth::user()->role->name == 'manager')
+                    @if (Auth::user()->role->name == 'pembelian')
                     <li class="nav-small-cap">PERSONAL</li>
                     {{-- <li>
                         <a class="" href="{{ url('/manager')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
@@ -64,7 +60,27 @@
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Data Barang</span></a>
                         <ul aria-expanded="true" class="collapse">
-                            <li><a href="{{ route('manager.acc') }}">Permintaan Barang</a></li>
+                            {{-- <li><a href="{{ route('manager.acc') }}">Permintaan Barang</a></li> --}}
+                            <li><a href="{{ route('supplier.index') }}">Nama Supplier</a></li>
+                            <li><a href="{{ route('order.index') }}">Purchase Order</a></li>
+                            <li><a href="{{ route('transaksi.index') }}">Transaksi Pembelian & Penerimaan Invoice</a></li>
+                            <li><a href="{{ route('pembelian.index') }}">Laporan Pembelian</a></li>
+
+                        </ul>
+                    </li>
+
+                    @endif
+
+                    @if (Auth::user()->role->name == 'pimpinan')
+                    <li class="nav-small-cap">PERSONAL</li>
+                    {{-- <li>
+                        <a class="" href="{{ url('/manager')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                    </li> --}}
+
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Data Barang</span></a>
+                        <ul aria-expanded="true" class="collapse">
+                            <li><a href="{{ route('laporan') }}">Laporan</a></li>
 
                         </ul>
                     </li>

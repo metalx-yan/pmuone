@@ -18,29 +18,39 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:administrator'
 
         return view('admin.index');
     });
+    Route::resource('account', 'AccountController');
 
+});
+
+Route::group(['prefix' => 'gudang', 'middleware' => ['auth', 'role:gudang']], function() {
+    Route::get('/', function () {
+
+        return view('admin.index');
+    });
+    Route::resource('bpb', 'BpbController');
+    Route::resource('bahanbaku', 'BahanBakuController');
+    Route::resource('penerimaanbarang', 'PenerimaanBahanController');
+});
+
+Route::group(['prefix' => 'pembelian', 'middleware' => ['auth', 'role:pembelian']], function() {
+    Route::get('/', function () {
+
+        return view('admin.index');
+    });
     Route::resource('order', 'OrderController');
     Route::resource('supplier', 'SupplierController');
-    Route::resource('bahanbaku', 'BahanBakuController');
     Route::resource('pembelian', 'PembelianController');
     Route::resource('transaksi', 'TransaksiController');
-    Route::resource('bpb', 'BpbController');
-    Route::resource('penerimaanbahan', 'PenerimaanBahanController');
 });
 
-Route::group(['prefix' => 'purchasing', 'middleware' => ['auth', 'role:purchasing']], function() {
 
+Route::group(['prefix' => 'pimpinan', 'middleware' => ['auth', 'role:pimpinan']], function() {
     Route::get('/', function () {
-        return view('purchasing.indux');
+
+        return view('admin.index');
     });
 
-});
-
-Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'role:manager']], function() {
-
-    Route::get('/', function () {
-        return view('manager.index');
-    });
+    Route::get('laporan', 'OrderController@laporan')->name('laporan');
 });
 
 
