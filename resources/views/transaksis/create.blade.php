@@ -24,13 +24,23 @@
 
                     <div class="col-md-3">
                         <label for="">Kode Supplier</label>
-                        <input type="text" name="kode" class="form-control {{ $errors->has('kode') ? 'is-invalid' : ''}}" required>
+                        <select name="kode" id="" required class="form-control {{ $errors->has('kode') ? 'is-invalid' : ''}}">
+                            <option value="">Pilih Kode Bahan</option>
+                            @foreach (App\Supplier::all() as $item)
+                                <option value="{{ str_replace(' ','_',$item->kode) }}">{{ $item->kode }}</option>
+                            @endforeach
+                        </select>
                         {!! $errors->first('kode', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
                         <label for="">Supplier</label>
-                        <input type="text" name="supplier" class="form-control {{ $errors->has('supplier') ? 'is-invalid' : ''}}" required>
+                        <select name="supplier" id="" required class="form-control {{ $errors->has('supplier') ? 'is-invalid' : ''}}">
+                            <option value="">Pilih Supplier</option>
+                            @foreach (App\Supplier::all() as $items)
+                                <option value="{{ str_replace(' ','_',$items->supplier) }}">{{ $items->supplier }}</option>
+                            @endforeach
+                        </select>
                         {!! $errors->first('supplier', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
@@ -67,27 +77,14 @@
                         <input type="text" name="dpp" class="form-control {{ $errors->has('dpp') ? 'is-invalid' : ''}}" required>
                         {!! $errors->first('dpp', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
-
-                    <div class="col-md-3">
-                        <label for="">PPN</label>
-                        <input type="text" name="ppn"  class="form-control {{ $errors->has('ppn') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('ppn', '<span class="invalid-feedback">:message</span>') !!}
-                    </div>
-
-                </div>
-                <br>
-                <div class="row">
-
-                    <div class="col-md-3">
-                        <label for="">Total</label>
-                        <input type="text" name="total" class="form-control {{ $errors->has('total') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('total', '<span class="invalid-feedback">:message</span>') !!}
-                    </div>
                     <div class="col-md-3">
                         <label for="">Keterangan</label>
                         <input type="text" name="keterangan" class="form-control {{ $errors->has('keterangan') ? 'is-invalid' : ''}}">
                         {!! $errors->first('keterangan', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
+                </div>
+                <br>
+                <div class="row">
                 </div>
 
                     <br>

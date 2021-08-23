@@ -45,8 +45,8 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->kode }}</td>
-                            <td>{{ $item->supplier }}</td>
+                            <td>{{ str_replace('_',' ',$item->kode) }}</td>
+                            <td>{{ str_replace('_',' ',$item->supplier) }}</td>
                             <td>{{ $item->tgl_invoice }}</td>
                             <td>{{ $item->no_invoice }}</td>
                             <td>{{ $item->tgl_terima_invoice }}</td>

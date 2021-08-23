@@ -51,6 +51,7 @@
                             {{-- <li><a href="{{ route('request.index') }}">Permintaan Barang</a></li> --}}
                             <li><a href="{{ route('bpb.index') }}">BPB (Bon Permintaan Bahan)</a></li>
                             <li><a href="{{ route('penerimaanbarang.index') }}">Penerimaan Bahan</a></li>
+                            <li><a href="{{ route('laporan.gudang') }}">Laporan Pembelian</a></li>
                         </ul>
                     </li>
 
@@ -76,7 +77,6 @@
                         <ul aria-expanded="true" class="collapse">
                             <li><a href="{{ route('order.index') }}">Purchase Order</a></li>
                             <li><a href="{{ route('transaksi.index') }}">Transaksi Pembelian & Penerimaan Invoice</a></li>
-                            <li><a href="{{ route('pembelian.index') }}">Laporan Pembelian</a></li>
                             {{-- <li><a href="{{ route('manager.acc') }}">Permintaan Barang</a></li> --}}
                             {{-- <li><a href="{{ route('supplier.index') }}">Nama Supplier</a></li>
                             <li><a href="{{ route('order.index') }}">Purchase Order</a></li>
@@ -97,7 +97,7 @@
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Data Barang</span></a>
                         <ul aria-expanded="true" class="collapse">
-                            <li><a href="{{ route('laporan') }}">Laporan</a></li>
+                            <li><a href="{{ route('laporan.pimpinan') }}">Laporan Pembelian</a></li>
 
                         </ul>
                     </li>

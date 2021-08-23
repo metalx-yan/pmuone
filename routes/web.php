@@ -30,6 +30,10 @@ Route::group(['prefix' => 'gudang', 'middleware' => ['auth', 'role:gudang']], fu
     Route::resource('bpb', 'BpbController');
     Route::resource('bahanbaku', 'BahanBakuController');
     Route::resource('penerimaanbarang', 'PenerimaanBahanController');
+    Route::get('/laporan/gudang', function () {
+
+        return view('laporan.gudang');
+    })->name('laporan.gudang');
 });
 
 Route::group(['prefix' => 'pembelian', 'middleware' => ['auth', 'role:pembelian']], function() {
@@ -39,7 +43,6 @@ Route::group(['prefix' => 'pembelian', 'middleware' => ['auth', 'role:pembelian'
     });
     Route::resource('order', 'OrderController');
     Route::resource('supplier', 'SupplierController');
-    Route::resource('pembelian', 'PembelianController');
     Route::resource('transaksi', 'TransaksiController');
 });
 
@@ -49,7 +52,10 @@ Route::group(['prefix' => 'pimpinan', 'middleware' => ['auth', 'role:pimpinan']]
 
         return view('admin.index');
     });
+    Route::get('/laporan/pimpinan', function () {
 
+        return view('laporan.pimpinan');
+    })->name('laporan.pimpinan');
     Route::get('laporan', 'OrderController@laporan')->name('laporan');
 });
 
