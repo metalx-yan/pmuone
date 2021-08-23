@@ -28,8 +28,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Bahan Baku</th>
-                        <th>Master Batch</th>
+                        <th>Kode Bahan</th>
+                        <th>Bahan Baku</th>
+                        <th>Satuan</th>
+                        <th>Jumlah Persediaan</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -37,8 +39,10 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->masterbatch }}</td>
+                            <td>{{ $item->kode }}</td>
+                            <td>{{ $item->bahan }}</td>
+                            <td>{{ $item->satuan }}</td>
+                            <td>{{ $item->jumlah }}</td>
                             <td>
                                 <div class="row">
                                     <div class="col-md-2">

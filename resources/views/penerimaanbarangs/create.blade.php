@@ -18,30 +18,51 @@
 
         </div>
         <div class="card-body">
-            <form action="{{ route('penerimaanbahan.store') }}" method="post">
+            <form action="{{ route('penerimaanbarang.store') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-4">
-                        <label for="">Nama Barang</label>
-                        <input type="text" name="nama_barang" class="form-control {{ $errors->has('nama_barang') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('nama_barang', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Kode Bahan</label>
+                        <select name="kode" id="" required class="form-control {{ $errors->has('kode') ? 'is-invalid' : ''}}">
+                            <option value="">Pilih Kode Bahan</option>
+                            @foreach (App\BahanBaku::all() as $item)
+                                <option value="{{ str_replace(' ','_',$item->kode) }}">{{ $item->kode }}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('kode', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
                     <div class="col-md-4">
-                        <label for="">Kode Barang</label>
-                        <input type="text" name="kode_barang" class="form-control {{ $errors->has('kode_barang') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('kode_barang', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Bahan Baku</label>
+                        <select name="bahan" id="" required class="form-control {{ $errors->has('bahan') ? 'is-invalid' : ''}}">
+                            <option value="">Pilih Bahan Baku</option>
+                            @foreach (App\BahanBaku::all() as $items)
+                                <option value="{{ str_replace(' ','_',$items->bahan) }}">{{ $items->bahan }}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('bahan', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
                     <div class="col-md-4">
-                        <label for="">Qty (KG)</label>
-                        <input type="number" min="0" name="qty" class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}" required>
+                        <label for="">Qty</label>
+                        <select name="qty" id="" required class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}">
+                            <option value="">Pilih Qty</option>
+                            @foreach (App\Bpb::all() as $itemss)
+                                <option value="{{ $itemss->qty }}">{{ $itemss->qty }}</option>
+                            @endforeach
+                        </select>
                         {!! $errors->first('qty', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-4">
+                        <label for="">Satuan</label>
+                        <input type="text" name="satuan" class="form-control {{ $errors->has('satuan') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('satuan', '<span class="invalid-feedback">:message</span>') !!}
+                    </div>
+                    <div class="col-md-4">
                         <label for="">Nama Penerima</label>
-                        <input type="text" name="nama_penerima" class="form-control {{ $errors->has('nama_penerima') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('nama_penerima', '<span class="invalid-feedback">:message</span>') !!}
+                        <input type="text" name="nama" class="form-control {{ $errors->has('nama') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('nama', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
                     <div class="col-md-4">
                         <label for="">Keterangan OK/TDK</label>
@@ -51,7 +72,7 @@
                 </div>
                     <br>
                     <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                    <a href="{{ route('penerimaanbahan.index') }}" class="btn btn-warning btn-sm">Back</a>
+                    <a href="{{ route('penerimaanbarang.index') }}" class="btn btn-warning btn-sm">Back</a>
             </form>
         </div>
     </div>

@@ -28,20 +28,15 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Office</th>
-                        <th>Tanggal Invoice</th>
+                        <th>Kode Supplier</th>
+                        <th>Supplier</th>
+                        <th>Tgl. Invoice</th>
                         <th>No Invoice</th>
-                        <th>No Faktur</th>
-                        <th>Barang</th>
+                        <th>Tgl. Terima Invoice</th>
+                        <th>No.Faktur Pajak</th>
+                        <th>DPP</th>
                         <th>PPN</th>
                         <th>Total</th>
-                        <th>Tanggal Bayar</th>
-                        <th>Trf</th>
-                        <th>PPH</th>
-                        <th>Db Note</th>
-                        <th>Bank Charge</th>
-                        <th>Total</th>
-                        <th>Balance</th>
                         <th>Keterangan</th>
                         <th>Action</th>
                     </tr>
@@ -50,20 +45,15 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->name_office }}</td>
-                            <td>{{ $item->tanggal_invoice }}</td>
+                            <td>{{ $item->kode }}</td>
+                            <td>{{ $item->supplier }}</td>
+                            <td>{{ $item->tgl_invoice }}</td>
                             <td>{{ $item->no_invoice }}</td>
-                            <td>{{ $item->no_faktur }}</td>
-                            <td>{{ $item->barang }}</td>
+                            <td>{{ $item->tgl_terima_invoice }}</td>
+                            <td>{{ $item->pajak }}</td>
+                            <td>{{ $item->dpp }}</td>
                             <td>{{ $item->ppn }}</td>
-                            <td>{{ $item->total_nilai }}</td>
-                            <td>{{ $item->tanggal_bayar }}</td>
-                            <td>{{ $item->trf }}</td>
-                            <td>{{ $item->pph }}</td>
-                            <td>{{ $item->db_note }}</td>
-                            <td>{{ $item->bank_charge }}</td>
-                            <td>{{ $item->total_actual }}</td>
-                            <td>{{ $item->balance }}</td>
+                            <td>{{ $item->total }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td>
                                 <div class="row">

@@ -28,14 +28,16 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Material ID</th>
-                        <th>Nama Material</th>
-                        <th>Colour</th>
+                        <th>Kode Supplier</th>
+                        <th>Supplier</th>
+                        <th>No PO</th>
+                        <th>Bahan Baku</th>
                         <th>QTY</th>
+                        <th>Satuan</th>
                         <th>Harga</th>
-                        <th>Sub Total</th>
-                        <th>PPN 10%</th>
-                        <th>Total</th>
+                        <th>DPP (qty * harga)</th>
+                        <th>PPN 10% (qty * harga*10%)</th>
+                        <th>Total ((qty * harga) + (qty * harga*10%))</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -43,12 +45,14 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->code }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->colour }}</td>
+                            <td>{{ str_replace('_',' ',$item->kode) }}</td>
+                            <td>{{ str_replace('_',' ',$item->supplier) }}</td>
+                            <td>{{ $item->po }}</td>
+                            <td>{{ str_replace('_',' ',$item->bahan) }}</td>
                             <td>{{ $item->qty }}</td>
+                            <td>{{ $item->satuan }}</td>
                             <td>{{ $item->harga }}</td>
-                            <td>{{ $item->sub_total }}</td>
+                            <td>{{ $item->dpp }}</td>
                             <td>{{ $item->ppn }}</td>
                             <td>{{ $item->total }}</td>
                             <td>
@@ -80,7 +84,9 @@
 
     <script>
         $(document).ready( function () {
-            $('#myTable').DataTable();
+            $('#myTable').DataTable({
+                "scrollX" : true
+            });
         } );
     </script>
 

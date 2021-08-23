@@ -15,8 +15,10 @@ class CreateBahanBakusTable extends Migration
     {
         Schema::create('bahan_bakus', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('masterbatch');
+            $table->string('kode')->unique();
+            $table->string('bahan');
+            $table->string('satuan');
+            $table->integer('jumlah');
             $table->timestamps();
         });
     }

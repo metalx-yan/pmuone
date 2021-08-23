@@ -23,27 +23,27 @@
                 <div class="row">
 
                     <div class="col-md-3">
-                        <label for="">Nama Office</label>
-                        <input type="text" name="name_office" class="form-control {{ $errors->has('name_office') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('name_office', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Kode Supplier</label>
+                        <input type="text" name="kode" class="form-control {{ $errors->has('kode') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('kode', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
-                        <label for="">Tanggal Invoice</label>
-                        <input type="date" name="tanggal_invoice" class="form-control {{ $errors->has('tanggal_invoice') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('tanggal_invoice', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Supplier</label>
+                        <input type="text" name="supplier" class="form-control {{ $errors->has('supplier') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('supplier', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
-                        <label for="">No Invoice</label>
-                        <input type="text" name="no_invoice" class="form-control {{ $errors->has('no_invoice') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('no_invoice', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">No PO</label>
+                        <input type="text" name="po" class="form-control {{ $errors->has('po') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('po', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
-                        <label for="">No Faktur</label>
-                        <input type="text" name="no_faktur" min="0" class="form-control {{ $errors->has('no_faktur') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('no_faktur', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Bahan Baku</label>
+                        <input type="text" name="bahan" class="form-control {{ $errors->has('bahan') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('bahan', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                 </div>
@@ -51,27 +51,27 @@
                 <div class="row">
 
                     <div class="col-md-3">
-                        <label for="">Barang</label>
-                        <input type="number" min="0" name="barang" min="0" class="form-control {{ $errors->has('barang') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('barang', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Qty</label>
+                        <input type="number" name="qty" class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('qty', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
-                        <label for="">PPN</label>
-                        <input type="number" min="0" name="ppn" min="0" class="form-control {{ $errors->has('ppn') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('ppn', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Satuan</label>
+                        <input type="text" name="satuan" class="form-control {{ $errors->has('satuan') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('satuan', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
-                        <label for="">PPH 23 (2%)</label>
-                        <input type="number" min="0" name="pph" min="0" class="form-control {{ $errors->has('pph') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('pph', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Harga</label>
+                        <input type="text" name="harga" class="form-control {{ $errors->has('harga') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('harga', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
-                        <label for="">Total</label>
-                        <input type="number" min="0" name="total" min="0" class="form-control {{ $errors->has('total') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('total', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">DPP</label>
+                        <input type="text" name="dpp" class="form-control {{ $errors->has('dpp') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('dpp', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                 </div>
@@ -79,16 +79,17 @@
                 <div class="row">
 
                     <div class="col-md-3">
-                        <label for="">No PO</label>
-                        <input type="text" name="no_po" class="form-control {{ $errors->has('no_po') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('no_po', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">PPN 10%</label>
+                        <input type="text" name="ppn" class="form-control {{ $errors->has('ppn') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('ppn', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
-                        <label for="">Nama Barang</label>
-                        <input type="text" name="nama_barang" class="form-control {{ $errors->has('nama_barang') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('nama_barang', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Total</label>
+                        <input type="number" name="total" class="form-control {{ $errors->has('total') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('total', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
+
 
                 </div>
                     <br>

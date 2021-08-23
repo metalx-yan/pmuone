@@ -28,16 +28,16 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Office</th>
-                        <th>Tanggal Invoice</th>
-                        <th>No Invoice</th>
-                        <th>No Faktur</th>
-                        <th>Barang</th>
-                        <th>PPN</th>
-                        <th>PPH 23 (2%)</th>
-                        <th>Total</th>
+                        <th>Kode Supplier</th>
+                        <th>Supplier</th>
                         <th>No PO</th>
-                        <th>Nama Barang</th>
+                        <th>Bahan Baku</th>
+                        <th>QTY</th>
+                        <th>Satuan</th>
+                        <th>Harga</th>
+                        <th>DPP</th>
+                        <th>PPN 10%</th>
+                        <th>Total</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -45,16 +45,16 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->name_office }}</td>
-                            <td>{{ $item->tanggal_invoice }}</td>
-                            <td>{{ $item->no_invoice }}</td>
-                            <td>{{ $item->no_faktur }}</td>
-                            <td>{{ $item->barang }}</td>
+                            <td>{{ $item->kode }}</td>
+                            <td>{{ $item->supplier }}</td>
+                            <td>{{ $item->po }}</td>
+                            <td>{{ $item->bahan }}</td>
+                            <td>{{ $item->qty }}</td>
+                            <td>{{ $item->satuan }}</td>
+                            <td>{{ $item->harga }}</td>
+                            <td>{{ $item->dpp }}</td>
                             <td>{{ $item->ppn }}</td>
-                            <td>{{ $item->pph }}</td>
                             <td>{{ $item->total }}</td>
-                            <td>{{ $item->no_po }}</td>
-                            <td>{{ $item->nama_barang }}</td>
                             <td>
                                 <div class="row">
                                     <div class="col-md-2">

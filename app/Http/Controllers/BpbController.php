@@ -37,12 +37,11 @@ class BpbController extends Controller
     public function store(Request $request)
     {
         $vali = $request->validate([
-            'departemen' => 'required',
-            'nama_barang' => 'required',
+            'kode' => 'required',
+            'bahan' => 'required',
             'sisa' => 'required',
-            'satuan_sisa' => 'required',
-            'permintaan' => 'required',
-            'satuan_permintaan' => 'required',
+            'qty' => 'required',
+            'satuan' => 'required',
             'keterangan' => 'required',
         ]);
 
@@ -83,23 +82,21 @@ class BpbController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'departemen' => 'required',
-            'nama_barang' => 'required',
+        $vali = $request->validate([
+            'kode' => 'required',
+            'bahan' => 'required',
             'sisa' => 'required',
-            'satuan_sisa' => 'required',
-            'permintaan' => 'required',
-            'satuan_permintaan' => 'required',
+            'qty' => 'required',
+            'satuan' => 'required',
             'keterangan' => 'required',
         ]);
 
         $update = Bpb::findOrFail($id);
-        $update->departemen = $request->departemen;
-        $update->nama_barang = $request->nama_barang;
+        $update->kode = $request->kode;
+        $update->bahan = $request->bahan;
         $update->sisa = $request->sisa;
-        $update->satuan_sisa = $request->satuan_sisa;
-        $update->permintaan = $request->permintaan;
-        $update->satuan_permintaan = $request->satuan_permintaan;
+        $update->qty = $request->qty;
+        $update->satuan = $request->satuan;
         $update->keterangan = $request->keterangan;
         $update->save();
 

@@ -15,13 +15,15 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code')->unique();
-            $table->string('name');
-            $table->string('colour');
+            $table->string('kode')->unique();
+            $table->string('supplier');
+            $table->string('po');
+            $table->string('bahan');
             $table->integer('qty');
-            $table->integer('harga');
-            $table->integer('sub_total');
-            $table->integer('ppn');
+            $table->string('satuan');
+            $table->double('harga');
+            $table->string('dpp');
+            $table->string('ppn');
             $table->integer('total');
             $table->timestamps();
         });

@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BahanBaku extends Model
 {
-    protected $fillable = ['name', 'masterbatch'];
+    protected $fillable = ['kode', 'bahan','satuan','jumlah'];
 
 }

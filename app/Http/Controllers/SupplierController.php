@@ -38,8 +38,12 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $vali = $request->validate([
-            'name' => 'required',
-            'address' => 'required',
+            'kode' => 'required',
+            'supplier' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+            'email' => 'required',
+            'rekening' => 'required',
         ]);
 
         Supplier::create($vali);
@@ -79,14 +83,22 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name'              =>  "required",
-            'address'           =>  'required',
+        $vali = $request->validate([
+            'kode' => 'required',
+            'supplier' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+            'email' => 'required',
+            'rekening' => 'required',
         ]);
 
         $update = Supplier::findOrFail($id);
-        $update->name = $request->name;
-        $update->address = $request->address;
+        $update->kode = $request->kode;
+        $update->supplier = $request->supplier;
+        $update->alamat = $request->alamat;
+        $update->telepon = $request->telepon;
+        $update->email = $request->email;
+        $update->rekening = $request->rekening;
         $update->save();
 
         return redirect()->route('supplier.index');

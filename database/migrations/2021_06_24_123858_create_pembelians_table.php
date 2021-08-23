@@ -15,16 +15,16 @@ class CreatePembeliansTable extends Migration
     {
         Schema::create('pembelians', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_office');
-            $table->date('tanggal_invoice');
-            $table->string('no_invoice');
-            $table->string('no_faktur');
-            $table->integer('barang');
-            $table->integer('ppn');
-            $table->integer('pph');
+            $table->string('kode')->unique();
+            $table->string('supplier');
+            $table->string('po');
+            $table->string('bahan');
+            $table->integer('qty');
+            $table->string('satuan');
+            $table->double('harga');
+            $table->string('dpp');
+            $table->string('ppn');
             $table->integer('total');
-            $table->string('no_po');
-            $table->string('nama_barang');
             $table->timestamps();
         });
     }

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
-    protected $fillable = ['name_office', 'tanggal_invoice', 'no_invoice', 'no_faktur', 'barang', 'ppn', 'total_nilai', 'tanggal_bayar', 'trf', 'pph', 'db_note', 'bank_charge','total_actual','balance','keterangan'];
+    protected $fillable = ['kode','supplier','tgl_invoice','no_invoice','tgl_terima_invoice','pajak','dpp','ppn','total','keterangan'];
 }

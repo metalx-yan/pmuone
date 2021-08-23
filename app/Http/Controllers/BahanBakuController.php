@@ -38,8 +38,10 @@ class BahanBakuController extends Controller
     public function store(Request $request)
     {
         $vali = $request->validate([
-            'name' => 'required',
-            'masterbatch' => 'required',
+            'kode' => 'required',
+            'bahan' => 'required',
+            'satuan' => 'required',
+            'jumlah' => 'required',
         ]);
 
         BahanBaku::create($vali);
@@ -79,14 +81,18 @@ class BahanBakuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name'              =>  "required",
-            'masterbatch'           =>  'required',
+        $vali = $request->validate([
+            'kode' => 'required',
+            'bahan' => 'required',
+            'satuan' => 'required',
+            'jumlah' => 'required',
         ]);
 
         $update = BahanBaku::findOrFail($id);
-        $update->name = $request->name;
-        $update->masterbatch = $request->masterbatch;
+        $update->kode = $request->kode;
+        $update->bahan = $request->bahan;
+        $update->satuan = $request->satuan;
+        $update->jumlah = $request->jumlah;
         $update->save();
 
         return redirect()->route('bahanbaku.index');

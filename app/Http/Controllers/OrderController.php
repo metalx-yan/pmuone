@@ -42,18 +42,29 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all(),$request->bahan);
         $vali = $request->validate([
-            'code' => 'required|unique:orders',
-            'name' => 'required',
-            'colour' => 'required',
-            'qty' => 'required|integer',
-            'harga' => 'required|integer',
-            'sub_total' => 'required|integer',
-            'ppn' => 'required|integer',
-            'total' => 'required|integer',
+            'kode' => 'required',
+            'supplier' => 'required',
+            'po' => 'required',
+            'bahan' => 'required',
+            'qty' => 'required',
+            'satuan' => 'required',
+            'harga' => 'required',
         ]);
 
-        Order::create($vali);
+        Order::create([
+            'kode' => $request->kode,
+            'supplier' => $request->supplier,
+            'po' => $request->po,
+            'bahan' => $request->bahan,
+            'qty' => $request->qty,
+            'satuan' => $request->satuan,
+            'harga' => $request->harga,
+            'dpp' => $request->qty * $request->harga,
+            'ppn' => ($request->qty * $request->harga)/0.1,
+            'total' => ($request->qty * $request->harga)+($request->qty * $request->harga)/0.1,
+        ]);
 
         return redirect()->route('order.index');
     }
@@ -90,26 +101,27 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'code'              =>  "required|unique:orders,code,$id|string",
-            'name'              =>  'required',
-            'colour'            =>  'required',
-            'qty'               =>  'required',
-            'harga'             =>  'required',
-            'sub_total'         =>  'required',
-            'ppn'               =>  'required',
-            'total'             =>  'required'
+        $vali = $request->validate([
+            'kode' => 'required',
+            'supplier' => 'required',
+            'po' => 'required',
+            'bahan' => 'required',
+            'qty' => 'required',
+            'satuan' => 'required',
+            'harga' => 'required',
         ]);
 
         $update = Order::findOrFail($id);
-        $update->code = $request->code;
-        $update->name = $request->name;
-        $update->colour = $request->colour;
+        $update->kode = $request->kode;
+        $update->supplier = $request->supplier;
+        $update->po = $request->po;
+        $update->bahan = $request->bahan;
         $update->qty = $request->qty;
+        $update->satuan = $request->satuan;
         $update->harga = $request->harga;
-        $update->sub_total = $request->sub_total;
-        $update->ppn = $request->ppn;
-        $update->total = $request->total;
+        $update->dpp = $request->qty * $request->harga;
+        $update->ppn = ($request->qty * $request->harga)/0.1;
+        $update->total = ($request->qty * $request->harga)+($request->qty * $request->harga)/0.1;
         $update->save();
 
         return redirect()->route('order.index');

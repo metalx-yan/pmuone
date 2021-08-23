@@ -15,10 +15,11 @@ class CreatePenerimaanBahansTable extends Migration
     {
         Schema::create('penerimaan_bahans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_barang');
-            $table->string('kode_barang');
-            $table->string('qty');
-            $table->string('nama_penerima');
+            $table->string('kode')->unique();
+            $table->string('bahan');
+            $table->integer('qty');
+            $table->string('satuan');
+            $table->string('nama');
             $table->string('keterangan');
             $table->timestamps();
         });

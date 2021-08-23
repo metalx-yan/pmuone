@@ -23,17 +23,39 @@
                 @csrf
                 @method('PUT')
                 <div class="row">
-                    <div class="col-md-3">
-                        <label for="">Nama Supplier</label>
-                        <input type="text" name="name" value="{{ $get->name }}" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('name', '<span class="invalid-feedback">:message</span>') !!}
+                    <div class="col-md-4">
+                        <label for="">Kode Supplier</label>
+                        <input type="text" name="kode" value="{{ $get->kode }}" class="form-control {{ $errors->has('kode') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('kode', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
-                    <div class="col-md-3">
-                        <label for="">Address</label>
-                        <input type="text" name="address" value="{{ $get->address }}" class="form-control {{ $errors->has('address') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('address', '<span class="invalid-feedback">:message</span>') !!}
+                    <div class="col-md-4">
+                        <label for="">Supplier</label>
+                        <input type="text" name="supplier" value="{{ $get->supplier }}" class="form-control {{ $errors->has('supplier') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('supplier', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
-
+                    <div class="col-md-4">
+                        <label for="">Alamat Supplier</label>
+                        <input type="text" name="alamat" value="{{ $get->alamat }}" class="form-control {{ $errors->has('alamat') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('alamat', '<span class="invalid-feedback">:message</span>') !!}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="">No. Telepon</label>
+                        <input type="text" name="telepon" value="{{ $get->telepon }}" class="form-control {{ $errors->has('telepon') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('telepon', '<span class="invalid-feedback">:message</span>') !!}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Email</label>
+                        <input type="text" name="email" value="{{ $get->email }}" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('email', '<span class="invalid-feedback">:message</span>') !!}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">No. Rekening</label>
+                        <input type="text" name="rekening" value="{{ $get->rekening }}" class="form-control {{ $errors->has('rekening') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('rekening', '<span class="invalid-feedback">:message</span>') !!}
+                    </div>
                 </div>
 
                     <br>

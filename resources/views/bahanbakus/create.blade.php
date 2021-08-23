@@ -23,15 +23,26 @@
                 <div class="row">
 
                     <div class="col-md-3">
-                        <label for="">Nama Bahan Baku</label>
-                        <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('name', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Kode Bahan</label>
+                        <input type="text" name="kode" class="form-control {{ $errors->has('kode') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('kode', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                     <div class="col-md-3">
-                        <label for="">Masterbatch</label>
-                        <input type="text" name="masterbatch" class="form-control {{ $errors->has('masterbatch') ? 'is-invalid' : ''}}" required>
-                        {!! $errors->first('masterbatch', '<span class="invalid-feedback">:message</span>') !!}
+                        <label for="">Bahan Baku</label>
+                        <input type="text" name="bahan" class="form-control {{ $errors->has('bahan') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('bahan', '<span class="invalid-feedback">:message</span>') !!}
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="">Satuan</label>
+                        <input type="text" name="satuan" class="form-control {{ $errors->has('satuan') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('satuan', '<span class="invalid-feedback">:message</span>') !!}
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Jumlah Persediaan</label>
+                        <input type="number" name="jumlah" class="form-control {{ $errors->has('jumlah') ? 'is-invalid' : ''}}" required>
+                        {!! $errors->first('jumlah', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 
                 </div>

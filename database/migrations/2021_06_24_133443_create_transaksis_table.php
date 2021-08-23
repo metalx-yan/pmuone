@@ -15,21 +15,16 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_office');
-            $table->date('tanggal_invoice');
+            $table->string('kode')->unique();
+            $table->string('supplier');
+            $table->date('tgl_invoice');
             $table->string('no_invoice');
-            $table->string('no_faktur');
-            $table->integer('barang');
-            $table->integer('ppn');
-            $table->integer('total_nilai');
-            $table->date('tanggal_bayar');
-            $table->string('trf');
-            $table->integer('pph');
-            $table->string('db_note');
-            $table->string('bank_charge');
-            $table->integer('total_actual');
-            $table->integer('balance');
-            $table->text('keterangan')->nullable();
+            $table->date('tgl_terima_invoice');
+            $table->string('pajak');
+            $table->string('dpp');
+            $table->string('ppn');
+            $table->string('total');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

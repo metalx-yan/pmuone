@@ -37,10 +37,11 @@ class PenerimaanBahanController extends Controller
     public function store(Request $request)
     {
         $vali = $request->validate([
-            'nama_barang' => 'required',
-            'kode_barang' => 'required',
+            'kode' => 'required',
+            'bahan' => 'required',
             'qty' => 'required|integer',
-            'nama_penerima' => 'required',
+            'satuan' => 'required',
+            'nama' => 'required',
             'keterangan' => 'required',
         ]);
 
@@ -82,18 +83,20 @@ class PenerimaanBahanController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_barang' => 'required',
-            'kode_barang' => 'required',
+            'kode' => 'required',
+            'bahan' => 'required',
             'qty' => 'required|integer',
-            'nama_penerima' => 'required',
+            'satuan' => 'required',
+            'nama' => 'required',
             'keterangan' => 'required',
         ]);
 
         $update = PenerimaanBahan::findOrFail($id);
-        $update->nama_barang = $request->nama_barang;
-        $update->kode_barang = $request->kode_barang;
+        $update->kode = $request->kode;
+        $update->bahan = $request->bahan;
         $update->qty = $request->qty;
-        $update->nama_penerima = $request->nama_penerima;
+        $update->satuan = $request->satuan;
+        $update->nama = $request->nama;
         $update->keterangan = $request->keterangan;
         $update->save();
 

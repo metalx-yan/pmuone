@@ -15,12 +15,11 @@ class CreateBpbsTable extends Migration
     {
         Schema::create('bpbs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('departemen');
-            $table->string('nama_barang');
+            $table->string('kode')->unique();
+            $table->string('bahan');
             $table->string('sisa');
-            $table->string('satuan_sisa');
-            $table->string('permintaan');
-            $table->string('satuan_permintaan');
+            $table->integer('qty');
+            $table->string('satuan');
             $table->string('keterangan');
             $table->timestamps();
         });

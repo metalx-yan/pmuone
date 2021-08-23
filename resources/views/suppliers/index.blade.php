@@ -28,8 +28,12 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Supplier</th>
+                        <th>Kode Supplier</th>
+                        <th>Supplier</th>
                         <th>Alamat Supplier</th>
+                        <th>No. Telepon</th>
+                        <th>Email</th>
+                        <th>No. Rekening</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -37,8 +41,12 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->address }}</td>
+                            <td>{{ $item->kode }}</td>
+                            <td>{{ $item->supplier }}</td>
+                            <td>{{ $item->alamat }}</td>
+                            <td>{{ $item->telepon }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>{{ $item->rekening }}</td>
                             <td>
                                 <div class="row">
                                     <div class="col-md-2">

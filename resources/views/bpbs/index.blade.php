@@ -28,11 +28,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Departemen</th>
-                        <th>Nama Barang</th>
-                        <th>Sisa di Gudang</th>
-                        <th>Satuan</th>
-                        <th>Permintaan</th>
+                        <th>Kode Bahan</th>
+                        <th>Bahan Baku</th>
+                        <th>Sisa Di Gudang</th>
+                        <th>Qty</th>
                         <th>Satuan</th>
                         <th>Keterangan</th>
                         <th>Action</th>
@@ -42,12 +41,11 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $item->departemen }}</td>
-                            <td>{{ $item->nama_barang }}</td>
+                            <td>{{ str_replace('_',' ',$item->kode) }}</td>
+                            <td>{{ str_replace('_', ' ',$item->bahan) }}</td>
                             <td>{{ $item->sisa }}</td>
-                            <td>{{ $item->satuan_sisa }}</td>
-                            <td>{{ $item->permintaan }}</td>
-                            <td>{{ $item->satuan_permintaan }}</td>
+                            <td>{{ $item->qty }}</td>
+                            <td>{{ $item->satuan }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td>
                                 <div class="row">
