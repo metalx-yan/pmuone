@@ -74,7 +74,7 @@
 
                     <div class="col-md-3">
                         <label for="">DPP</label>
-                        <input type="text" name="dpp" class="form-control {{ $errors->has('dpp') ? 'is-invalid' : ''}}" required>
+                        <input type="number" name="dpp" class="form-control {{ $errors->has('dpp') ? 'is-invalid' : ''}}" required>
                         {!! $errors->first('dpp', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
                     <div class="col-md-3">

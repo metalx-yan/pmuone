@@ -35,9 +35,9 @@
                         <th>QTY</th>
                         <th>Satuan</th>
                         <th>Harga</th>
-                        <th>DPP (qty * harga)</th>
-                        <th>PPN 10% (qty * harga*10%)</th>
-                        <th>Total ((qty * harga) + (qty * harga*10%))</th>
+                        <th>DPP</th>
+                        <th>PPN 10%</th>
+                        <th>Total</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -51,10 +51,10 @@
                             <td>{{ str_replace('_',' ',$item->bahan) }}</td>
                             <td>{{ $item->qty }}</td>
                             <td>{{ $item->satuan }}</td>
-                            <td>{{ $item->harga }}</td>
-                            <td>{{ $item->dpp }}</td>
-                            <td>{{ $item->ppn }}</td>
-                            <td>{{ $item->total }}</td>
+                            <td>{{ number_format($item->harga) }}</td>
+                            <td>{{ number_format($item->dpp) }}</td>
+                            <td>{{ number_format($item->ppn) }}</td>
+                            <td>{{ number_format($item->total) }}</td>
                             <td>
                                 <div class="row">
                                     <div class="col-md-2">

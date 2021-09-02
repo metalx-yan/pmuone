@@ -64,7 +64,12 @@
                 <div class="row">
                     <div class="col-md-3">
                         <label for="">Qty</label>
-                        <input type="number" min="0" name="qty" value="{{ $get->qty }}" class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}" required>
+                        <select name="qty" id="" required class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}">
+                            <option value="">Pilih Qty</option>
+                            @foreach (App\Bpb::all() as $itemss)
+                                <option value="{{ str_replace(' ','_',$itemss->qty) }}" {{ str_replace('_',' ',$get->qty) == $itemss->qty ? 'selected' : '' }}>{{ $itemss->qty }}</option>
+                            @endforeach
+                        </select>
                         {!! $errors->first('qty', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
                     <div class="col-md-3">

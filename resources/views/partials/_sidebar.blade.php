@@ -17,12 +17,12 @@
                 <ul id="sidebarnav">
                     @if (Auth::user()->role->name == 'administrator')
                     <li class="nav-small-cap">PERSONAL</li>
-                        <li>
+                        {{-- <li>
                         <a class="" href="{{ url('/admin')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
-                        </li>
+                        </li> --}}
 
                         <li>
-                            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Master Data</span></a>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Menu Account</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{ route('account.index') }}">Account</a></li>
                             </ul>
@@ -90,12 +90,12 @@
 
                     @if (Auth::user()->role->name == 'pimpinan')
                     <li class="nav-small-cap">PERSONAL</li>
-                    {{-- <li>
-                        <a class="" href="{{ url('/manager')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
-                    </li> --}}
+                    <li>
+                        <a class="" href="{{ url('/')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                    </li>
 
                     <li>
-                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Data Barang</span></a>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-outline"></i><span class="hide-menu">Laporan Pembelian</span></a>
                         <ul aria-expanded="true" class="collapse">
                             <li><a href="{{ route('laporan.pimpinan') }}">Laporan Pembelian</a></li>
 

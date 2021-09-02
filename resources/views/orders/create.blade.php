@@ -67,7 +67,12 @@
 
                     <div class="col-md-3">
                         <label for="">Qty</label>
-                        <input type="number" name="qty" class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}" required>
+                        <select name="qty" id="" required class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}">
+                            <option value="">Pilih Qty</option>
+                            @foreach (App\Bpb::all() as $itemss)
+                                <option value="{{ $itemss->qty }}">{{ $itemss->qty }}</option>
+                            @endforeach
+                        </select>
                         {!! $errors->first('qty', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
 

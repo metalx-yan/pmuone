@@ -62,8 +62,8 @@ class OrderController extends Controller
             'satuan' => $request->satuan,
             'harga' => $request->harga,
             'dpp' => $request->qty * $request->harga,
-            'ppn' => ($request->qty * $request->harga)/0.1,
-            'total' => ($request->qty * $request->harga)+($request->qty * $request->harga)/0.1,
+            'ppn' => ($request->qty * $request->harga)/0.01,
+            'total' => ($request->qty * $request->harga)+($request->qty * $request->harga)/0.01,
         ]);
 
         return redirect()->route('order.index');
@@ -120,8 +120,8 @@ class OrderController extends Controller
         $update->satuan = $request->satuan;
         $update->harga = $request->harga;
         $update->dpp = $request->qty * $request->harga;
-        $update->ppn = ($request->qty * $request->harga)/0.1;
-        $update->total = ($request->qty * $request->harga)+($request->qty * $request->harga)/0.1;
+        $update->ppn = ($request->qty * (($request->harga*0.1)/0.01))/1000;
+        $update->total = ($request->qty * $request->harga)+($request->qty * (($request->harga*0.1)/0.01))/1000;
         $update->save();
 
         return redirect()->route('order.index');
